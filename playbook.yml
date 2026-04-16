@@ -9,7 +9,7 @@
          dest: "/opt/tomcat/webapps/2023MavenWebAppPipelineAnsible.war"
          remote_src: no
          
-     -name: Restart Tomcat
+     - name: Restart tomcat
      systemd:
        name: tomcat
        state: restarted
