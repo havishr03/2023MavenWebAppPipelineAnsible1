@@ -1,15 +1,15 @@
 ---
- - name: Deploy to Tomcat
-   hosts: web
-   become: yes
-   tasks: 
-     - name: Copy WAR file to Tomcat
-       copy: 
-         src: "/var/snap/jenkins/5013/workspace/2023MavenWebAppPipelineAnsible/target/2023MavenWebAppPipelineAnsible.war"
-         dest: "/opt/tomcat/webapps/2023MavenWebAppPipelineAnsible.war"
-         remote_src: no
-         
-     - name: Restart tomcat
-       systemd:
-       name: tomcat
-       state: restarted
+- name: Deploy to Tomcat
+  hosts: web
+  become: yes
+  tasks:
+    - name: Copy WAR file to Tomcat
+      copy:
+        src: "/var/snap/jenkins/5013/workspace/2023MavenWebAppPipelineAnsible/target/2023MavenWebAppPipelineAnsible.war"
+        dest: "/opt/tomcat/webapps/2023MavenWebAppPipelineAnsible.war"
+        remote_src: no
+
+    - name: Restart tomcat
+      systemd:
+        name: tomcat
+        state: restarted
